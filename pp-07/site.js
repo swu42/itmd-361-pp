@@ -2,16 +2,16 @@
   1. Correct the variable scope so that the console.log call
   outputs the correct value for x (5).
 */
-
-var x = 5;
-
-function double(num) {
-  x = num * 2;
+(function(){
+  var x = 5;
+  function double(num) {
+  var x = num * 2;
   return x;
 }
 
-double(6);
-console.log('The value of x is:', x, 'It should be 5.');
+  double(6);
+  console.log('The value of x is:', x, 'It should be 5.');
+});
 
 /*
   2. Rewrite the corrected JavaScript above as function that
@@ -19,3 +19,12 @@ console.log('The value of x is:', x, 'It should be 5.');
   variables nor the double function can be accessed via the
   `window` global object, like `window.x`).
 */
+(function(){
+  function double(num){
+    var x = 5;
+    x = num * 2;
+    return x;
+  }
+  double(6);
+  console.log('The value of x is:', x, 'It should be 5.');
+});
